@@ -1,0 +1,22 @@
+[Unit]
+Description=OMEN Hub Lighter - HP OMEN Fan Control
+After=graphical.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -m omen_linux
+Restart=on-failure
+RestartSec=5
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/run/user/1000/gdm/Xauthority
+
+# Run as user (change to your username)
+User=%I
+Group=%I
+
+# Allow hardware access
+CapabilityBoundingSet=CAP_SYS_RAWIO
+AmbientCapabilities=CAP_SYS_RAWIO
+
+[Install]
+WantedBy=graphical.target

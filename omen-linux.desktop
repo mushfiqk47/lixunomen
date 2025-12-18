@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=OMEN Hub Lighter
+Comment=Lightweight fan control for HP OMEN laptops
+Exec=omen-linux
+Icon=preferences-system-power
+Terminal=false
+Type=Application
+Categories=System;Settings;HardwareSettings;
+Keywords=fan;omen;hp;cooling;performance;
+StartupNotify=true

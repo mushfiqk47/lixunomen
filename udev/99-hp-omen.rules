@@ -1,0 +1,16 @@
+# udev rules for HP OMEN hardware access
+# Allows non-root users in the 'omen' group to control fan settings
+
+# HP-WMI platform profile
+SUBSYSTEM=="platform", DRIVER=="hp-wmi", RUN+="/bin/chmod 666 /sys/firmware/acpi/platform_profile"
+
+# HP-WMI hwmon (fan control)
+SUBSYSTEM=="hwmon", KERNELS=="hp-wmi", RUN+="/bin/sh -c 'chmod 666 /sys%p/pwm*'"
+
+# Alternative: Allow full access to hp-wmi hwmon devices
+ACTION=="add", SUBSYSTEM=="hwmon", ATTR{name}=="hp", MODE="0666"
+
+# ACPI platform profile - make writable for all users
+# WARNING: This allows any user to change thermal profiles
+# For more security, use a group-based approach instead
+SUBSYSTEM=="acpi", KERNEL=="platform_profile", MODE="0666"
