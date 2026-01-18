@@ -32,11 +32,24 @@ sudo apt install python3-pip python3-gi python3-gi-cairo gir1.2-gtk-4.0 gir1.2-a
 pip3 install pydbus psutil
 ```
 
+### 1a. Install Dependencies (Arch Linux / CachyOS / Manjaro)
+
+```bash
+sudo pacman -S python-pip python-gobject gtk4 libadwaita lm_sensors python-psutil
+```
+
 ### 2. Clone and Install
 
+**Debian/Ubuntu:**
 ```bash
 cd omen-linux
 pip3 install -e .
+```
+
+**Arch/CachyOS (using install script):**
+```bash
+cd omen-linux
+./install_arch.sh
 ```
 
 ### 3. Setup udev Rules (for non-root access)
